@@ -25,7 +25,7 @@ const TableRow = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                className="w-6 h-6"
               >
                 <path
                   stroke-linecap="round"
@@ -45,7 +45,7 @@ const TableRow = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                className="w-6 h-6"
               >
                 <path
                   stroke-linecap="round"
@@ -85,7 +85,7 @@ const TableRow = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                className="w-6 h-6"
               >
                 <path
                   stroke-linecap="round"
@@ -100,7 +100,6 @@ const TableRow = () => {
           <span className="flex">
             <div className="tooltip text-white" data-tip="Select multiple">
               <input type="checkbox" className="checkbox checkbox-sm shadow" />
-              {/* <button class="btn">Hover me</button> */}
             </div>
           </span>
         </span>

@@ -6,7 +6,7 @@ const LeftFilter = () => {
       <div className="flex gap-x-4">
         {/* choose category */}
         <div>
-          <select class="select select-bordered select-sm w-full max-w-xs rounded-sm">
+          <select className="select select-bordered select-sm w-full max-w-xs rounded-sm">
             <option disabled selected>
               Categories
             </option>
@@ -21,7 +21,7 @@ const LeftFilter = () => {
 
         {/* choose size */}
         <div>
-          <select class="select select-bordered select-sm w-full max-w-xs rounded-sm">
+          <select className="select select-bordered select-sm w-full max-w-xs rounded-sm">
             <option disabled selected>
               Sizes
             </option>
@@ -33,7 +33,7 @@ const LeftFilter = () => {
         </div>
 
         {/* reset button */}
-        <button class="btn btn-sm text-[#009ebe] rounded-sm flex gap-x-2 bg-white">
+        <button className="btn btn-sm text-[#009ebe] rounded-sm flex gap-x-2 bg-white">
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ const LeftFilter = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              className="w-6 h-6"
             >
               <path
                 stroke-linecap="round"
