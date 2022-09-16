@@ -73,7 +73,7 @@ const TableRow = () => {
               <input
                 type="text"
                 placeholder="Type quantity"
-                className="input input-bordered input-sm max-w-xs"
+                className="input input-bordered input-sm max-w-xs rounded-sm"
               />
             </span>
 
