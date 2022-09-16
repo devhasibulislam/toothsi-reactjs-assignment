@@ -1,4 +1,5 @@
 import React from "react";
+import TableHeader from "./TableHeader";
 import TableRow from "./TableRow";
 
 const Table = () => {
@@ -8,15 +9,7 @@ const Table = () => {
         <div className="overflow-x-auto">
           <table className="table w-full">
             <thead>
-              <tr>
-                <th>ID</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Color</th>
-                <th>Stock</th>
-                <th>Price</th>
-                <th>Buy</th>
-              </tr>
+              <TableHeader />
             </thead>
             <tbody>
               <TableRow />
