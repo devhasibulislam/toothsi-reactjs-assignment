@@ -93,12 +93,13 @@ const TableRow = ({ keyword, filter }) => {
                 type="text"
                 placeholder="Type quantity"
                 className="input input-bordered input-sm w-32 rounded-sm"
+                disabled={product.stock === "Out of Stock"}
               />
             </span>
 
             {/* cart */}
             <span
-              className="tooltip"
+              className={`tooltip ${product.stock === "Out of Stock" && "pointer-events-none"}`}
               data-tip="Add to Cart"
               onClick={() => navigate("/checkout")}
               role="button"
@@ -123,7 +124,11 @@ const TableRow = ({ keyword, filter }) => {
           {/* checkbox */}
           <span className="flex">
             <div className="tooltip text-white" data-tip="Select multiple">
-              <input type="checkbox" className="checkbox checkbox-sm shadow" />
+              <input
+                type="checkbox"
+                className="checkbox checkbox-sm shadow"
+                disabled={product.stock === "Out of Stock"}
+              />
             </div>
           </span>
         </span>
