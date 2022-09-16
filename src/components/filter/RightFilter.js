@@ -15,7 +15,7 @@ const RightFilter = () => {
         </div>
 
         {/* add to cart */}
-        <div>
+        <div className="text-center">
           <button className="btn text-white px-8 bg-[#00a0c0] border-0 rounded-sm">Add to cart</button>
         </div>
       </div>
