@@ -1,12 +1,24 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
-const LeftFilter = () => {
+const LeftFilter = ({ setFilter }) => {
+  const [category, setCategory] = useState("");
+  const [size, setSize] = useState("");
+
+  useEffect(() => {
+    setFilter([category, size]);
+  }, [category, size, setFilter]);
+
   return (
     <section>
       <div className="flex gap-x-4">
         {/* choose category */}
         <div>
-          <select className="select select-bordered select-sm w-full max-w-xs rounded-sm">
+          <select
+            className="select select-bordered select-sm w-full max-w-xs rounded-sm"
+            onChange={(e) => setCategory(e.target.value)}
+          >
             <option disabled selected>
               Categories
             </option>
@@ -21,7 +33,10 @@ const LeftFilter = () => {
 
         {/* choose size */}
         <div>
-          <select className="select select-bordered select-sm w-full max-w-xs rounded-sm">
+          <select
+            className="select select-bordered select-sm w-full max-w-xs rounded-sm"
+            onChange={(e) => setSize(e.target.value)}
+          >
             <option disabled selected>
               Sizes
             </option>
@@ -33,7 +48,13 @@ const LeftFilter = () => {
         </div>
 
         {/* reset button */}
-        <button className="btn btn-sm text-[#009ebe] rounded-sm flex gap-x-2 bg-white">
+        <button
+          className="btn btn-sm text-[#009ebe] rounded-sm flex gap-x-2 bg-white"
+          // onClick={() => {
+          //   setCategory("Categories");
+          //   setSize("Size");
+          // }}
+        >
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
