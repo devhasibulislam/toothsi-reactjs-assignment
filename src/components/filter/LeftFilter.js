@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const LeftFilter = ({ setFilter }) => {
-  const [category, setCategory] = useState("Categories");
+  const [category, setCategory] = useState("Category");
   const [size, setSize] = useState("Size");
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const LeftFilter = ({ setFilter }) => {
         <button
           className="btn btn-sm text-[#009ebe] rounded-sm flex gap-x-2 bg-white"
           onClick={() => {
-            setCategory("Categories");
+            setCategory("Category");
             setSize("Size");
           }}
         >

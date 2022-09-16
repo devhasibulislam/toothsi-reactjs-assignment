@@ -1,13 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useProduct from "../../utilities/useProduct";
 
 const TableRow = ({ keyword, filter }) => {
   const products = useProduct();
-  // console.log(keyword, filter);
+  const navigate = useNavigate();
   const matchedProducts1 =
-    filter[0] === "Categories" ||
+    filter[0] === "Category" ||
     filter[1] === "Sizes" ||
-    (filter[0] === "Categories" && filter[1] === "Sizes")
+    (filter[0] === "Category" && filter[1] === "Sizes")
       ? products
       : products.filter(
           (product) =>
@@ -96,7 +97,12 @@ const TableRow = ({ keyword, filter }) => {
             </span>
 
             {/* cart */}
-            <span className="tooltip" data-tip="Add to Cart">
+            <span
+              className="tooltip"
+              data-tip="Add to Cart"
+              onClick={() => navigate("/checkout")}
+              role="button"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
