@@ -78,7 +78,7 @@ const TableRow = () => {
             </span>
 
             {/* cart */}
-            <span>
+            <span className="tooltip" data-tip="Add to Cart">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -98,7 +98,10 @@ const TableRow = () => {
 
           {/* checkbox */}
           <span className="flex">
-            <input type="checkbox" className="checkbox" />
+            <div className="tooltip text-white" data-tip="Select multiple">
+              <input type="checkbox" className="checkbox checkbox-sm shadow" />
+              {/* <button class="btn">Hover me</button> */}
+            </div>
           </span>
         </span>
       </td>
