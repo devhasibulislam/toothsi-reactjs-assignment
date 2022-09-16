@@ -1,9 +1,27 @@
 import React from "react";
 import useProduct from "../../utilities/useProduct";
 
-const TableRow = () => {
+const TableRow = ({ keyword, filter }) => {
   const products = useProduct();
-  return products.map((product) => (
+  // console.log(keyword, filter);
+  const matchedProducts1 =
+    filter[0] === "" ||
+    filter[1] === "" ||
+    (filter[0] === "" && filter[1] === "")
+      ? products
+      : products.filter(
+          (product) =>
+            (product.category === filter[0] && product.size === filter[1]) ||
+            product.category === filter[0] ||
+            product.size === filter[1]
+        );
+
+  const matchedProducts2 = matchedProducts1.filter((product) =>
+    product.name.toLowerCase().includes(keyword.toLowerCase())
+  );
+  console.log(matchedProducts2);
+
+  return matchedProducts2.map((product) => (
     <tr key={product._id} className="hover">
       <th>{product._id}</th>
       <td>
