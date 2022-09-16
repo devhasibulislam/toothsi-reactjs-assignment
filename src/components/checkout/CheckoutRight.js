@@ -1,11 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutRight = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="mx-auto">
-      <div class="card w-96 bg-base-100 shadow-2xl">
-        <div class="card-body">
-          <h2 class="card-title flex justify-between items-center">
+      <div className="card w-96 bg-base-100 shadow-2xl">
+        <div className="card-body">
+          <h2 className="card-title flex justify-between items-center">
             <span>Cart totals</span>
             <span>
               <svg
@@ -14,7 +17,7 @@ const CheckoutRight = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                className="w-6 h-6"
               >
                 <path
                   stroke-linecap="round"
@@ -39,8 +42,11 @@ const CheckoutRight = () => {
               <span>$101.00</span>
             </div>
           </div>
-          <div class="card-actions justify-center">
-            <button class="btn btn-wide text-white bg-[#1c3eaa] rounded-3xl border-0">
+          <div className="card-actions justify-center">
+            <button
+              className="btn btn-wide text-white bg-[#1c3eaa] rounded-3xl border-0"
+              onClick={() => navigate("/tysm")}
+            >
               Proceed to checkout
             </button>
           </div>
