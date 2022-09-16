@@ -7,11 +7,13 @@
 
 import "./App.css";
 import Filter from "./components/filter/Filter";
+import Table from "./components/table/Table";
 
 function App() {
   return (
     <section className="App">
       <Filter />
+      <Table />
     </section>
   );
 }
