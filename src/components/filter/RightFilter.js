@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const RightFilter = () => {
+  const navigate = useNavigate();
+
   return (
     <section>
       <div className="flex lg:flex-row md:flex-row flex-col gap-x-4 lg:gap-y-0 md:gap-y-0 gap-y-4">
@@ -16,7 +19,12 @@ const RightFilter = () => {
 
         {/* add to cart */}
         <div className="text-center">
-          <button className="btn text-white px-8 bg-[#00a0c0] border-0 rounded-sm">Add to cart</button>
+          <button
+            className="btn text-white px-8 bg-[#00a0c0] border-0 rounded-sm"
+            onClick={() => navigate("/checkout")}
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </section>
