@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const RightFilter = () => {
+const RightFilter = ({ setKeyword }) => {
   const navigate = useNavigate();
 
   return (
@@ -14,6 +14,7 @@ const RightFilter = () => {
             type="text"
             placeholder="Enter product name"
             className="input input-bordered rounded-sm input-md max-w-xs"
+            onChange={(e) => setKeyword(e.target.value)}
           />
         </div>
 
