@@ -5,15 +5,21 @@
  * Date: 16/09/2022
  */
 
-import "./App.css";
-import Filter from "./components/filter/Filter";
-import Table from "./components/table/Table";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Checkout from "./routes/Checkout";
+import Greetings from "./routes/Greetings";
+import Home from "./routes/Home";
 
 function App() {
   return (
     <section className="App">
-      <Filter />
-      <Table />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/tysm" element={<Greetings />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
     </section>
   );
 }
