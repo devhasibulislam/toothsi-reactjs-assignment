@@ -1,9 +1,16 @@
 function addToCartSingle(product, qty) {
   const cart = getFromCart();
-  product.quantity = qty;
-  cart.push(product);
+  let isExist;
 
-  localStorage.setItem("ProductListingCart", JSON.stringify(cart));
+  cart.forEach((crt) => (isExist = crt._id !== product._id));
+
+  if (isExist) {
+    product.quantity = qty;
+    cart.push(product);
+    localStorage.setItem("ProductListingCart", JSON.stringify(cart));
+  } else {
+    console.log("Product exist on cart.");
+  }
 }
 
 function getFromCart() {
