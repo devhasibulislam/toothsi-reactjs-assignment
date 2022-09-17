@@ -1,10 +1,9 @@
 function addToCartSingle(product, qty) {
   const cart = getFromCart();
   let isExist;
-
   cart.forEach((crt) => (isExist = crt._id !== product._id));
 
-  if (isExist) {
+  if (isExist || cart.length === 0) {
     product.quantity = qty;
     cart.push(product);
     localStorage.setItem("ProductListingCart", JSON.stringify(cart));
