@@ -179,7 +179,6 @@ const TableRow = ({ keyword, filter }) => {
                 type="checkbox"
                 className="checkbox checkbox-sm shadow"
                 disabled={product.stock === "Out of Stock"}
-                // value={state}
                 // onClick={() => multipleSelectionCart(product)}
                 onClick={() => bulkSelection(product)}
               />
