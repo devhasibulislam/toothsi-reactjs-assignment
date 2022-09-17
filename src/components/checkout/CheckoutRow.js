@@ -1,12 +1,18 @@
 import React from "react";
-import useProduct from "../../utilities/useProduct";
+import { removeFromCart } from "../../utilities/useCart";
 
 const CheckoutRow = () => {
-  const products = useProduct();
-  return products.slice(0, 5).map((product) => (
+  const products = JSON.parse(localStorage.getItem("ProductListingCart"));
+
+  return products?.map((product) => (
     <tr key={product._id} className="hover">
       <th>
-        <span className="tooltip tooltip-right" data-tip="Remove from Cart" role={"button"}>
+        <span
+          className="tooltip tooltip-right"
+          data-tip="Remove from Cart"
+          onClick={() => removeFromCart(product._id)}
+          role={"button"}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -31,9 +37,19 @@ const CheckoutRow = () => {
         />
       </th>
       <td>{product.name}</td>
-      <td>{product.price}</td>
-      <td>QTY</td>
-      <td>Subtotal</td>
+      <td>
+        <span className="flex gap-x-2">
+          <span>$</span>
+          <span>{product.price}</span>
+        </span>
+      </td>
+      <td>{product.quantity}</td>
+      <td>
+        <span className="flex gap-x-2">
+          <span>$</span>
+          <span>{product.price * product.quantity}</span>
+        </span>
+      </td>
     </tr>
   ));
 };
