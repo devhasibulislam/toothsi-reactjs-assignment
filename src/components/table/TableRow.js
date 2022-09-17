@@ -41,6 +41,30 @@ const TableRow = ({ keyword, filter }) => {
   //   console.log(filteredProducts);
   // }
 
+  /* alternative approach */
+  let bulkProducts = [];
+  function bulkSelection(product) {
+    if (bulkProducts.length === 0) {
+      bulkProducts.push(product);
+      console.log(bulkProducts);
+    } else {
+      const filteredBulkProducts = bulkProducts.find(
+        (prod) => prod._id === product._id
+      );
+      if (filteredBulkProducts) {
+        // console.log("Already exists.");
+        const elseExistProducts = bulkProducts.filter(
+          (prod) => prod._id !== product._id
+        );
+        bulkProducts = elseExistProducts;
+        console.log(bulkProducts);
+      } else {
+        bulkProducts.push(product);
+        console.log(bulkProducts);
+      }
+    }
+  }
+
   return matchedProducts2.map((product) => (
     <tr key={product._id} className="hover">
       <th>{product._id}</th>
@@ -155,7 +179,9 @@ const TableRow = ({ keyword, filter }) => {
                 type="checkbox"
                 className="checkbox checkbox-sm shadow"
                 disabled={product.stock === "Out of Stock"}
+                // value={state}
                 // onClick={() => multipleSelectionCart(product)}
+                onClick={() => bulkSelection(product)}
               />
             </div>
           </span>
