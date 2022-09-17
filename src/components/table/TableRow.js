@@ -1,14 +1,18 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { addToCartSingle } from "../../utilities/useCart";
 import useProduct from "../../utilities/useProduct";
 
 const TableRow = ({ keyword, filter }) => {
+  const [qty, setQTY] = useState(0);
   const products = useProduct();
   const navigate = useNavigate();
+
   const matchedProducts1 =
+    (filter[0] === "Category" && filter[1] === "Sizes") ||
     filter[0] === "Category" ||
-    filter[1] === "Sizes" ||
-    (filter[0] === "Category" && filter[1] === "Sizes")
+    filter[1] === "Sizes"
       ? products
       : products.filter(
           (product) =>
@@ -20,7 +24,6 @@ const TableRow = ({ keyword, filter }) => {
   const matchedProducts2 = matchedProducts1.filter((product) =>
     product.name.toLowerCase().includes(keyword.toLowerCase())
   );
-  console.log(matchedProducts2);
 
   return matchedProducts2.map((product) => (
     <tr key={product._id} className="hover">
@@ -90,18 +93,26 @@ const TableRow = ({ keyword, filter }) => {
             {/* input */}
             <span>
               <input
-                type="text"
+                type="number"
                 placeholder="Type quantity"
-                className="input input-bordered input-sm w-32 rounded-sm"
+                className="input input-bordered input-sm w-36 rounded-sm"
                 disabled={product.stock === "Out of Stock"}
+                onChange={(e) => setQTY(e.target.value)}
               />
             </span>
 
             {/* cart */}
             <span
-              className={`tooltip ${product.stock === "Out of Stock" && "pointer-events-none"}`}
+              className={`tooltip ${
+                product.stock === "Out of Stock" && "pointer-events-none"
+              }`}
               data-tip="Add to Cart"
-              onClick={() => navigate("/checkout")}
+              onClick={() => {
+                if (qty >= 1) {
+                  addToCartSingle(product, qty);
+                  navigate("/checkout");
+                }
+              }}
               role="button"
             >
               <svg
