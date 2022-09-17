@@ -25,6 +25,22 @@ const TableRow = ({ keyword, filter }) => {
     product.name.toLowerCase().includes(keyword.toLowerCase())
   );
 
+  /* --------------------------------------------- */
+  /* ---***--- remove object duplication ---***--- */
+  /* --------------------------------------------- */
+  // const multipleProducts = [];
+  // function multipleSelectionCart(product) {
+  //   multipleProducts.push(product);
+  //   const pids = multipleProducts.reduce(
+  //     (ids, el) => ids.add(el._id),
+  //     new Set()
+  //   );
+  //   const filteredProducts = multipleProducts.filter((el) =>
+  //     pids.delete(el._id)
+  //   );
+  //   console.log(filteredProducts);
+  // }
+
   return matchedProducts2.map((product) => (
     <tr key={product._id} className="hover">
       <th>{product._id}</th>
@@ -139,6 +155,7 @@ const TableRow = ({ keyword, filter }) => {
                 type="checkbox"
                 className="checkbox checkbox-sm shadow"
                 disabled={product.stock === "Out of Stock"}
+                // onClick={() => multipleSelectionCart(product)}
               />
             </div>
           </span>
