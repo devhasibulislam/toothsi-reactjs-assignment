@@ -47,7 +47,7 @@ const CheckoutRow = () => {
       <td>
         <span className="flex gap-x-2">
           <span>$</span>
-          <span>{product.price * product.quantity}</span>
+          <span>{(product.price * product.quantity).toFixed(2)}</span>
         </span>
       </td>
     </tr>
