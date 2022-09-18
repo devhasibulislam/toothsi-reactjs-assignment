@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { removeFromCart } from "../../utilities/useCart";
 
 const CheckoutRow = () => {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
+  setInterval(() => {
     setProducts(JSON.parse(localStorage.getItem("ProductListingCart")));
-  });
+  }, 50);
 
   return products?.map((product) => (
     <tr key={product._id} className="hover">
