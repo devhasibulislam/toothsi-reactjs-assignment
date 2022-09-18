@@ -4,7 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { addToCartSingle } from "../../utilities/useCart";
 import useProduct from "../../utilities/useProduct";
 
-const TableRow = ({ keyword, filter }) => {
+const TableRow = ({
+  keyword,
+  filter,
+  selectMultipleProducts,
+  setSelectMultipleProducts,
+}) => {
   const [qty, setQTY] = useState(0);
   const products = useProduct();
   const navigate = useNavigate();
@@ -28,25 +33,24 @@ const TableRow = ({ keyword, filter }) => {
   /* ---------------------------------- */
   /* ---***--- bulk selection ---***--- */
   /* ---------------------------------- */
-  let bulkProducts = [];
   function bulkSelection(product) {
-    if (bulkProducts.length === 0) {
-      bulkProducts.push(product);
-      console.log(bulkProducts);
+    if (selectMultipleProducts.length === 0) {
+      product.quantity = qty || "1";
+      setSelectMultipleProducts([product]);
+      setQTY(0);
     } else {
-      const filteredBulkProducts = bulkProducts.find(
+      const filteredBulkProducts = selectMultipleProducts.find(
         (prod) => prod._id === product._id
       );
       if (filteredBulkProducts) {
-        // console.log("Already exists.");
-        const elseExistProducts = bulkProducts.filter(
+        const elseExistProducts = selectMultipleProducts.filter(
           (prod) => prod._id !== product._id
         );
-        bulkProducts = elseExistProducts;
-        console.log(bulkProducts);
+        setSelectMultipleProducts(elseExistProducts);
       } else {
-        bulkProducts.push(product);
-        console.log(bulkProducts);
+        product.quantity = qty || "1";
+        setSelectMultipleProducts([...selectMultipleProducts, product]);
+        setQTY(0);
       }
     }
   }
