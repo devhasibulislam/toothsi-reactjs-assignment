@@ -25,23 +25,9 @@ const TableRow = ({ keyword, filter }) => {
     product.name.toLowerCase().includes(keyword.toLowerCase())
   );
 
-  /* --------------------------------------------- */
-  /* ---***--- remove object duplication ---***--- */
-  /* --------------------------------------------- */
-  // const multipleProducts = [];
-  // function multipleSelectionCart(product) {
-  //   multipleProducts.push(product);
-  //   const pids = multipleProducts.reduce(
-  //     (ids, el) => ids.add(el._id),
-  //     new Set()
-  //   );
-  //   const filteredProducts = multipleProducts.filter((el) =>
-  //     pids.delete(el._id)
-  //   );
-  //   console.log(filteredProducts);
-  // }
-
-  /* alternative approach */
+  /* ---------------------------------- */
+  /* ---***--- bulk selection ---***--- */
+  /* ---------------------------------- */
   let bulkProducts = [];
   function bulkSelection(product) {
     if (bulkProducts.length === 0) {
