@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 const CheckoutRight = () => {
   const navigate = useNavigate();
+  let subTotal = 0;
+  JSON.parse(localStorage.getItem("ProductListingCart")).forEach(prod => subTotal += (Number(prod.price) * Number(prod.quantity)));
 
   return (
     <section className="mx-auto">
@@ -31,15 +33,15 @@ const CheckoutRight = () => {
             {/* subtotal */}
             <div className="flex justify-between">
               <span className="font-medium">Subtotal</span>
-              <span>$101.00</span>
+              <span>${subTotal.toFixed(2)}</span>
             </div>
 
             <hr className="my-2" />
 
             {/* total */}
             <div className="flex justify-between">
-              <span className="font-medium text-xl">Total</span>
-              <span>$101.00</span>
+              <span className="font-medium text-xl tooltip tooltip-right" data-tip="Including tax $2.50 ">Total</span>
+              <span>${(subTotal + 2.50).toFixed(2)}</span>
             </div>
           </div>
           <div className="card-actions justify-center">
