@@ -5,8 +5,6 @@ import { addToCartMultiple } from "../../utilities/useCart";
 const RightFilter = ({ setKeyword, selectMultipleProducts }) => {
   const navigate = useNavigate();
 
-  console.log(selectMultipleProducts);
-
   return (
     <section>
       <div className="flex lg:flex-row md:flex-row flex-col gap-x-4 lg:gap-y-0 md:gap-y-0 gap-y-4">
