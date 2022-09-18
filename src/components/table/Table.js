@@ -2,7 +2,7 @@ import React from "react";
 import TableHeader from "./TableHeader";
 import TableRow from "./TableRow";
 
-const Table = ({ keyword, filter }) => {
+const Table = ({ keyword, filter, selectMultipleProducts, setSelectMultipleProducts }) => {
   return (
     <section className="py-6">
       <div className="container mx-auto shadow">
@@ -12,7 +12,7 @@ const Table = ({ keyword, filter }) => {
               <TableHeader />
             </thead>
             <tbody>
-              <TableRow keyword={keyword} filter={filter} />
+              <TableRow keyword={keyword} filter={filter} selectMultipleProducts={selectMultipleProducts} setSelectMultipleProducts={setSelectMultipleProducts} />
             </tbody>
           </table>
         </div>
