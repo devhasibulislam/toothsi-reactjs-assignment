@@ -6,11 +6,12 @@ import Table from "../components/table/Table";
 const Home = () => {
   const [keyword, setKeyword] = useState("");
   const [filter, setFilter] = useState([]);
+  const [selectMultipleProducts, setSelectMultipleProducts] = useState([]);
 
   return (
     <section>
-      <Filter setKeyword={setKeyword} setFilter={setFilter} />
-      <Table keyword={keyword} filter={filter} />
+      <Filter setKeyword={setKeyword} setFilter={setFilter} selectMultipleProducts={selectMultipleProducts} />
+      <Table keyword={keyword} filter={filter} selectMultipleProducts={selectMultipleProducts} setSelectMultipleProducts={setSelectMultipleProducts} />
     </section>
   );
 };
