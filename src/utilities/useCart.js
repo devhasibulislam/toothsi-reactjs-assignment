@@ -3,7 +3,7 @@ function addToCartSingle(product, qty) {
   let isExist;
   cart.forEach((crt) => (isExist = crt._id !== product._id));
 
-  if (isExist || cart.length === 0) {
+  if (isExist) {
     product.quantity = qty;
     cart.push(product);
     localStorage.setItem("ProductListingCart", JSON.stringify(cart));
