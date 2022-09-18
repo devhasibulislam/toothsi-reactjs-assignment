@@ -12,6 +12,17 @@ function addToCartSingle(product, qty) {
   }
 }
 
+function addToCartMultiple(products) {
+  const cart = getFromCart();
+  const pids = cart.map((prod) => prod._id);
+  const restProducts = products.filter((prod) => !pids.includes(prod._id));
+
+  localStorage.setItem(
+    "ProductListingCart",
+    JSON.stringify([...cart, ...restProducts])
+  );
+}
+
 function getFromCart() {
   const cart = localStorage.getItem("ProductListingCart");
   let items = null;
@@ -32,4 +43,4 @@ function removeFromCart(pid) {
   localStorage.setItem("ProductListingCart", JSON.stringify(matchedProducts));
 }
 
-export { addToCartSingle, removeFromCart };
+export { addToCartSingle, addToCartMultiple, removeFromCart };
