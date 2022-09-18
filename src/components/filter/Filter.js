@@ -1,5 +1,4 @@
 import React from "react";
-// import { useState } from "react";
 import LeftFilter from "./LeftFilter";
 import RightFilter from "./RightFilter";
 
