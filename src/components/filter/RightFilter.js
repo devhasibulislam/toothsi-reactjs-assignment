@@ -1,8 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { addToCartMultiple } from "../../utilities/useCart";
 
-const RightFilter = ({ setKeyword }) => {
+const RightFilter = ({ setKeyword, selectMultipleProducts }) => {
   const navigate = useNavigate();
+
+  console.log(selectMultipleProducts);
 
   return (
     <section>
@@ -22,7 +25,10 @@ const RightFilter = ({ setKeyword }) => {
         <div className="text-center">
           <button
             className="btn text-white px-8 bg-[#00a0c0] border-0 rounded-sm"
-            onClick={() => navigate("/checkout")}
+            onClick={() => {
+              addToCartMultiple(selectMultipleProducts);
+              navigate("/checkout");
+            }}
           >
             Add to cart
           </button>
