@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { removeFromCart } from "../../utilities/useCart";
 
 const CheckoutRow = () => {
   const [products, setProducts] = useState([]);
+  const [pid, setPID] = useState(0);
 
-  setInterval(() => {
+  useEffect(() => {
     setProducts(JSON.parse(localStorage.getItem("ProductListingCart")));
-  }, 50);
+  }, [pid]);
 
   return products?.map((product) => (
     <tr key={product._id} className="hover">
@@ -14,7 +15,10 @@ const CheckoutRow = () => {
         <span
           className="tooltip tooltip-right"
           data-tip="Remove from Cart"
-          onClick={() => removeFromCart(product._id)}
+          onClick={() => {
+            removeFromCart(product._id);
+            setPID(product._id);
+          }}
           role={"button"}
         >
           <svg
