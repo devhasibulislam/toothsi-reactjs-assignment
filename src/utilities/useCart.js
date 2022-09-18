@@ -1,14 +1,11 @@
 function addToCartSingle(product, qty) {
   const cart = getFromCart();
-  let isExist;
-  cart.forEach((crt) => (isExist = crt._id !== product._id));
 
-  if (isExist) {
+  const pids = cart.map((crt) => crt._id);
+  if (!pids.includes(product._id)) {
     product.quantity = qty;
     cart.push(product);
     localStorage.setItem("ProductListingCart", JSON.stringify(cart));
-  } else {
-    console.log("Product exist on cart.");
   }
 }
 
